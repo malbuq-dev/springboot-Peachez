@@ -24,21 +24,21 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<String> createProduct() {
-        return createProductService.execute();
+        return createProductService.execute(null);
     }
     
     @GetMapping
     public ResponseEntity<String> getProduct() {
-        return getProductService.execute();
+        return getProductService.execute(null);
     }
     
     @PutMapping
     public ResponseEntity<String> putProduct() {
-        return putProductService.execute();
+        return putProductService.execute(null);
     }
     
     @DeleteMapping
     public ResponseEntity<String> deleteProduct() {
-        return deleteProductService.execute();
+        return deleteProductService.execute(null);
     }
 }
