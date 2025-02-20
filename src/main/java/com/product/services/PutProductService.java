@@ -11,6 +11,7 @@ import com.product.model.Product;
 import com.product.model.ProductDTO;
 import com.product.model.ProductRepository;
 import com.product.model.UpdateProductCommand;
+import com.product.validators.ProductValidator;
 
 @Service
 public class PutProductService implements Command<UpdateProductCommand, ProductDTO>{  
@@ -22,6 +23,8 @@ public class PutProductService implements Command<UpdateProductCommand, ProductD
     
     @Override
     public ResponseEntity<ProductDTO> execute(UpdateProductCommand updateProductCommand) {
+        ProductValidator.execute(updateProductCommand.getProduct());
+        
         Optional<Product> originalProductOptional = productRepository.findById(updateProductCommand.getId());
 
         if(originalProductOptional.isPresent()) {

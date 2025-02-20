@@ -35,4 +35,14 @@ This repository is dedicated to storing and sharing my learning from each YouTub
 #### Key Learnings:
  - Exception handlers in Spring can be done in two ways: Building upon the basic error messages from Spring or building costume error messages.
  - The key steps to build upon the basic Spring error messages are: creating a custom run time exception class with a custom message and throwing it in the appropriate services. You'll need the @ResponseStatus to add the correct Http status to the message. Here's a good practice to use Enum and handle all the messages in one place.
- - To build completly custom error messages, you can create a ErrorMessages class with the annotation @ControllerAdvice and then add a custom method with the @ExceptionHandler annotation for every expection you need in your application.
+ - To build completly custom error messages, you can create a ErrorMessages class with the annotation @ControllerAdvice and then add a custom method with the @ExceptionHandler annotation for every expection you need in your application. 
+
+### Java Spring Boot [2024] Part 4: Validation
+
+#### Key Learnings:
+ - Validation it's just the idea that you have to check the data you're receiving to make sure it's formated in the way you defined it should.
+ - As a backend API, a Spring App could rely on frontend validation but that's just not good practice and a API should be able to handle validating the data it receives.
+ - There are tons of ways of doing that and in this tutorial he teaches two: Custom valitation and Spring validation.
+ - Custom validation happens when you throw custom errors with if statements, basically. It's very manual but I liked it.
+ - Spring validator is a Spring dependency that at the time of this commit I couldn't make it run to test, but basically handle most of the valitation code via annotations in the entity class fields.
+
