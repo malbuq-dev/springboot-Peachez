@@ -62,3 +62,19 @@ Link to the version of the course I'll be covering here: [text](https://www.yout
  - Not much notes for this one. This particular class was a really concise and theorical introduction to the Spring stack of data handling. 
  - My main understanding here is that the data comes from a regular database and has to go a long way to get to the Spring Data JPA.
  - In the video he explains that the JDBC is basically the thing we set up in pom.xml, JPA is a bunch of rules that you have to follow in order to be able to read and write data via Java to your database and Hibernate is a way of handling these rules. Spring Data JPA is built on top of these other layers of abstraction and is in general, what we deal with when developing the repositories.
+
+### Java Spring Boot [2024] Part 7: Unit Testing
+
+#### Key Learnings:
+ - Unit Testing is pretty much writting code that ensures that some other code does what you'd expect to be doing.
+ - There are tons of ways of writing tests but in this video we learn about JUnit, which is the Spring way of doing so.
+ - But, do you have to test everything in your program? The answer is no. In general, you should only focus on writing tests to the code you wrote yourself. So basically, you should focus on testing the service layer, cause that's where the core logic of your program reside.
+ - For now, my approach for building the tests is:
+  - Creating a test class for every service you have
+  - Using the annotations @Mock @InjectMock @BeforeEach and @Test, which is well enough explained in the video.
+  - Thinking about all the possible paths that the service you're testing could go. So basically, testing for when things go wrong and write.
+  - How you name the tests is important and in the video he teaches an approach based on 'given, when, then', which can be translated as: given that the condition X happened, when you run the service you're testing, then Y should happen.
+- Three functions were very very important to undestand when it comes to writing these: when, thenReturn, assertEquals, assertThrows.
+- The first two functions are important to 'mock' the data you're using for the test. Cause since you're not really connected to the database or client, you'll need to figure out a way of handling the parts of the code that are supposed to connect to one of these, so this functions ensures that a particular function that is present in the service you're testing will return a value according to what you need in the situation of the test. ThenReturn pretty much tells what you want to return when that function is called.
+- The remaining ones are pretty similar to each other. They pretty much receive what the result should be and what you'll get based on the input you're giving to the service.
+- Important to remember is that when dealing with the assertThrows, you need to pass the Exception.class and a function.

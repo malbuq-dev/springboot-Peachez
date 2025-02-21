@@ -10,9 +10,6 @@ import com.product.model.Product;
 import com.product.model.ProductDTO;
 import com.product.validators.ProductValidator;
 
-import jakarta.transaction.Transactional;
-
-
 @Service
 public class CreateProductService implements Command<Product, ProductDTO> {
 
