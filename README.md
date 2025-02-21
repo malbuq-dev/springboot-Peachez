@@ -51,7 +51,14 @@ Link to the version of the course I'll be covering here: [text](https://www.yout
 ### Java Spring Boot [2024] Part 5: Query String Params, @Query, Spring Data JPA, Repository Methods
 
 #### Key Learnings:
- - The key idea of this class is learning about Springs JPA. JPA is basically a Java API that allowes you to perform some fairly complex queries without having to deal with the SQL sintax.
- - To use the JPA you pretty much just have to create a method in the respective repository class you're handling and give a name. The thing is, the name has to follow certain patterns to work with the JPA API. So for instance, if you have a 'name' field in your entity, you can do something like findByName and it will work fine.
- - When the query you're looking to do is too complex for JPA to handle, you can do it yourself by just pretty much creating a new method in the repository class and proceeding to add a @Query annotation with the query you want to peform.
- - A important note is that the query has to be written within the JPQL sintax, which obviously looks a lot like SQL, but the catch is that you don't need to worry about the particular sintax of the database you're working wiht (Postgres in my case), unless you want to (look for nativeQuery=true)
+ - The key idea of this class is learning about Spring Data JPA (SDP for short). SDP is basically a Java API that allowes you to perform some fairly complex queries without having to deal with the SQL sintax.
+ - To use the SDP you pretty much just have to create a method in the respective repository class you're handling and give a name. The thing is, the name has to follow certain patterns to work with the SDP. So for instance, if you have a 'name' field in your entity, you can do something like findByName and it will work fine.
+ - When the query you're looking to do is too complex for SDP to handle, you can do it yourself by just pretty much creating a new method in the repository class and proceeding to add a @Query annotation with the query you want to peform.
+ - A important note is that the query has to be written within the JPQL sintax, which obviously looks a lot like SQL, but the catch is that you don't need to worry about the particular sintax of the database you're working with (Postgres in my case), unless you want to (look for nativeQuery=true)
+ 
+### Java Spring Boot [2024] Part 6: JDBC, JPA, Hibernate, Spring Data
+
+#### Key Learnings:
+ - Not much notes for this one. This particular class was a really concise and theorical introduction to the Spring stack of data handling. 
+ - My main understanding here is that the data comes from a regular database and has to go a long way to get to the Spring Data JPA.
+ - In the video he explains that the JDBC is basically the thing we set up in pom.xml, JPA is a bunch of rules that you have to follow in order to be able to read and write data via Java to your database and Hibernate is a way of handling these rules. Spring Data JPA is built on top of these other layers of abstraction and is in general, what we deal with when developing the repositories.
