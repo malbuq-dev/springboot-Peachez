@@ -2,6 +2,8 @@
 
 This repository is dedicated to storing and sharing my learning from each YouTube class in the Peachez Spring Boot course.
 
+Link to the version of the course I'll be covering here: [text](https://www.youtube.com/watch?v=eHw8bNZ7xi4&list=PL7TZZ2ip0DRCmJ57pzkc3EChRTJ6pm_bH)
+
 ## Repository Structure
 
 - Each commit corresponds to a class from the course.
@@ -46,3 +48,10 @@ This repository is dedicated to storing and sharing my learning from each YouTub
  - Custom validation happens when you throw custom errors with if statements, basically. It's very manual but I liked it.
  - Spring validator is a Spring dependency that at the time of this commit I couldn't make it run to test, but basically handle most of the valitation code via annotations in the entity class fields.
 
+### Java Spring Boot [2024] Part 5: Query String Params, @Query, Spring Data JPA, Repository Methods
+
+#### Key Learnings:
+ - The key idea of this class is learning about Springs JPA. JPA is basically a Java API that allowes you to perform some fairly complex queries without having to deal with the SQL sintax.
+ - To use the JPA you pretty much just have to create a method in the respective repository class you're handling and give a name. The thing is, the name has to follow certain patterns to work with the JPA API. So for instance, if you have a 'name' field in your entity, you can do something like findByName and it will work fine.
+ - When the query you're looking to do is too complex for JPA to handle, you can do it yourself by just pretty much creating a new method in the repository class and proceeding to add a @Query annotation with the query you want to peform.
+ - A important note is that the query has to be written within the JPQL sintax, which obviously looks a lot like SQL, but the catch is that you don't need to worry about the particular sintax of the database you're working wiht (Postgres in my case), unless you want to (look for nativeQuery=true)

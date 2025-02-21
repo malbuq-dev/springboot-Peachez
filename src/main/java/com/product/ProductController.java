@@ -2,19 +2,16 @@ package com.product;
 
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.product.exceptions.ProductNotFoundException;
-import com.product.model.ErrorResponse;
 import com.product.model.Product;
 import com.product.model.ProductDTO;
 import com.product.model.UpdateProductCommand;
@@ -23,20 +20,23 @@ import com.product.services.DeleteProductService;
 import com.product.services.GetProductService;
 import com.product.services.GetProductsService;
 import com.product.services.PutProductService;
+import com.product.services.SearchProductService;
 
 @RestController
 public class ProductController {
     private final CreateProductService createProductService;
     private final GetProductsService getProductsService;
     private final GetProductService getProductService;
+    private final SearchProductService searchProductService;
     private final PutProductService putProductService;
     private final DeleteProductService deleteProductService;
 
     public ProductController(
-        CreateProductService createProductService, GetProductsService getProductsService, GetProductService getProductService, PutProductService putProductService, DeleteProductService deleteProductService) {
+        CreateProductService createProductService, GetProductsService getProductsService, GetProductService getProductService, SearchProductService searchProductService, PutProductService putProductService, DeleteProductService deleteProductService) {
         this.createProductService = createProductService;
         this.getProductsService = getProductsService;
         this.getProductService = getProductService;
+        this.searchProductService = searchProductService;
         this.putProductService = putProductService;
         this.deleteProductService = deleteProductService;
     }
@@ -54,6 +54,11 @@ public class ProductController {
     @GetMapping("/product/{id}")
     public ResponseEntity<ProductDTO> getProduct(@PathVariable Integer id) {
         return getProductService.execute(id);
+    }
+
+    @GetMapping("/product/search")
+    public ResponseEntity<List<ProductDTO>> searchProductByName(@RequestParam String name) {
+        return searchProductService.execute(name);
     }
     
     @PutMapping("/product/{id}")

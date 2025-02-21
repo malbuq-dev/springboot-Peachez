@@ -6,10 +6,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.ProductRepository;
 import com.Query;
 import com.product.model.Product;
 import com.product.model.ProductDTO;
-import com.product.model.ProductRepository;
 
 @Service
 public class GetProductsService implements Query<Void, List<ProductDTO>>{
