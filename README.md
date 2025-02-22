@@ -91,3 +91,10 @@ Link to the version of the course I'll be covering here: [text](https://www.yout
 - To build the headers using Spring you need the annotation @RequestHeader in you controller, just like you'd do with @RequestBody.
 - In order to send the data either in XML or JSON, you'll need the produces parameter in the controller annotation. 
 - I'll be honest here, this one didn't provide much context in really what headers are so I had to google it and couldn't learn much more, so these notes are pretty shallow.
+
+### Java Spring Boot [2024] Part 9: Relational Mappings
+
+#### Key Learnings:
+- Relational Mapping is the idea of cardinality in databases but applied to entities in Java.
+- You pretty much learn how to do OneToOne, ManyToMany and so on, but using JPA.
+- The most important things are the annotations. You can honestly just google them cause they're very straight forward, but the most complex on is the @ManyToMany one. You have to build a junction table in your database to use it and use the parameters joinColumns and inverseJoinColumns.
