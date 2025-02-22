@@ -78,3 +78,16 @@ Link to the version of the course I'll be covering here: [text](https://www.yout
 - The first two functions are important to 'mock' the data you're using for the test. Cause since you're not really connected to the database or client, you'll need to figure out a way of handling the parts of the code that are supposed to connect to one of these, so this functions ensures that a particular function that is present in the service you're testing will return a value according to what you need in the situation of the test. ThenReturn pretty much tells what you want to return when that function is called.
 - The remaining ones are pretty similar to each other. They pretty much receive what the result should be and what you'll get based on the input you're giving to the service.
 - Important to remember is that when dealing with the assertThrows, you need to pass the Exception.class and a function.
+
+### Java Spring Boot [2024] Part 8: Headers
+
+#### Key Learnings:
+- HTTP requests and responses have some data attached to it, obviously, as we learned before. We have the Method, Body, URL and in this class, we learn that we also have a Header.
+- Headers are basically a way of sending meta-data in a HTTP request. You send it using key-value pair annotation.
+- There are pretty much 3 reasons to use headers, them being:
+ - Accept headers, that contains what kind of data you want to get (XML, JSON)
+ - Authorization, which has to do with security and will be taught later on the course.
+ - Cookies.
+- To build the headers using Spring you need the annotation @RequestHeader in you controller, just like you'd do with @RequestBody.
+- In order to send the data either in XML or JSON, you'll need the produces parameter in the controller annotation. 
+- I'll be honest here, this one didn't provide much context in really what headers are so I had to google it and couldn't learn much more, so these notes are pretty shallow.
