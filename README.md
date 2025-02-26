@@ -108,3 +108,15 @@ Link to the version of the course I'll be covering here: [text](https://www.yout
 - There are a couple of way to why to log, but the only two we learn about are the error and the info ones.
 - To use this Log API, you pretty much just instantiate a static object of the type Logger from the package SLF4J and use it with logger.info or logger.error.
 - Important thing is, if you want your app to write the log info to a file in your hard disk, you can by adding a line in your app properties.
+
+### Java Spring Boot [2024] Part 11: Cache
+
+#### Key Learnings:
+- Caching is a good way to improve the response time of your API.
+- As the other tools we're learning, there are a bunch of Caching APIs that can be used in Spring and we learn about the default one.
+- The most interesting thing on this class was knowing that you kinda have put, delete and create operations in caching just like we do in HTTP requests.
+- Here's the core of what I learned:
+ - When you want to store a result in cache, you need to use @Cachable and add the a name to represent that cache. The name kind of works as a table that stores all the previously called objects by this name.
+ - The problem is when you update or delete the data in your database, the cache needs to be updated to represent the current state, so that's the 'stale data' problem.
+ - To avoid it, we can simply delete the data from the cache using @CacheEvict in the service that will handle the updating or deletion, and this will remove the updated object from cache, or @CachePut, which will actually change the data in database and then proceed to change it in cache, making them synchronized.
+- You can also create your own cache configutarions to over write the default ones from Spring, but I didn't care much about it to be honest.

@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +24,9 @@ public class GetProductService implements Query<Integer, ProductDTO>{
     public GetProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
-
+    
     @Override
+    @Cacheable("productCache")    
     public ResponseEntity<ProductDTO> execute(Integer id) {
         Optional<Product> productOptional = productRepository.findById(id);
 

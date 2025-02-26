@@ -2,6 +2,8 @@ package com.product.services;
 
 import java.util.Optional;
 
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,7 @@ public class PutProductService implements Command<UpdateProductCommand, ProductD
     }
     
     @Override
+    @CachePut(value = "productCache", key="#updateProductCommand.getId()")
     public ResponseEntity<ProductDTO> execute(UpdateProductCommand updateProductCommand) {
         ProductValidator.execute(updateProductCommand.getProduct());
         
