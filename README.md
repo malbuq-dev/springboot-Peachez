@@ -98,3 +98,13 @@ Link to the version of the course I'll be covering here: [text](https://www.yout
 - Relational Mapping is the idea of cardinality in databases but applied to entities in Java.
 - You pretty much learn how to do OneToOne, ManyToMany and so on, but using JPA.
 - The most important things are the annotations. You can honestly just google them cause they're very straight forward, but the most complex on is the @ManyToMany one. You have to build a junction table in your database to use it and use the parameters joinColumns and inverseJoinColumns.
+
+### Java Spring Boot [2024] Part 10: Logging
+
+#### Key Learnings:
+- Logs are a good way of helping the dev team understand more about errors, mainly when the app is running in production.
+- They're basically print line statements but the powerful part is that, when properly handled, they can give important cues of where some problems are comming from in your app.
+- There're a lot of tools for logging, but the one we learn on this class is called SLF4J.
+- There are a couple of way to why to log, but the only two we learn about are the error and the info ones.
+- To use this Log API, you pretty much just instantiate a static object of the type Logger from the package SLF4J and use it with logger.info or logger.error.
+- Important thing is, if you want your app to write the log info to a file in your hard disk, you can by adding a line in your app properties.
