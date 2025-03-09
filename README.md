@@ -120,3 +120,12 @@ Link to the version of the course I'll be covering here: [text](https://www.yout
  - The problem is when you update or delete the data in your database, the cache needs to be updated to represent the current state, so that's the 'stale data' problem.
  - To avoid it, we can simply delete the data from the cache using @CacheEvict in the service that will handle the updating or deletion, and this will remove the updated object from cache, or @CachePut, which will actually change the data in database and then proceed to change it in cache, making them synchronized.
 - You can also create your own cache configutarions to over write the default ones from Spring, but I didn't care much about it to be honest.
+
+### Java Spring Boot [2024] Part 12: External API Integration
+
+#### Key Learnings:
+- To call an external REST API you have to first build a Configuration file that will create a bean of the type RestTemplate and give you some API calling powers that I can't fully understand right now.
+- After that he teaches that is good practice to build response and DTO classes to handle the data that you want to get from the API.
+- You of course need to create a service and expose it via a controller.
+- In the Service is where the fun things start, cause there are a couple of ways to call the API, but he focus on a particular one that allowes you to use a build pattern to build a URI and then use it after to, via the RestTemplate created in the initial Configuration file, call the API.
+- It's important to handle the expections well in these cases cause since it's a third party API you might deal with not getting the data that you're looking for.
